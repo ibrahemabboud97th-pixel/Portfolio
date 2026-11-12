@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      // Everyone can read the public site content
+      allow read: if true;
+      // Only your Google account can create / edit / delete
+      allow write: if request.auth != null
+                   && request.auth.token.email == "ibrahemabboud97th@gmail.com"
+                   && request.auth.token.email_verified == true;
+    }
+  }
+}
