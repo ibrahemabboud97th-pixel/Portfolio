@@ -1,0 +1,138 @@
+{
+  "stats": [
+    { "pillar": "Clinical", "value": "900+", "label": "Surgeries assisted under anesthesia" },
+    { "pillar": "Research", "value": "5", "label": "Research projects & outputs" },
+    { "pillar": "Learning", "value": "10", "label": "Courses & trainings completed" },
+    { "pillar": "Humanitarian", "value": "10,000+", "label": "Beneficiaries reached through Ma'ak" }
+  ],
+  "maakStats": [
+    { "value": "10,000+", "label": "Beneficiaries across all sectors" },
+    { "value": "350+", "label": "Beneficiaries of the Medical Program" },
+    { "value": "1,800", "label": "Chemotherapy doses provided" },
+    { "value": "220", "label": "Diagnostic & follow-up tests" },
+    { "value": "1,000+", "label": "Psychological support sessions" },
+    { "value": "250+", "label": "Educational sessions" },
+    { "value": "390", "label": "Volunteers in the structure" },
+    { "value": "2019", "label": "Started as a student initiative" }
+  ],
+  "projects": [
+    {
+      "title": "Support for Cancer Patients & Orphans",
+      "cats": ["medical", "relief", "psy"],
+      "date": "Feb–Apr 2026",
+      "funding": "$10,000 · Rahma Worldwide & Syrian American Council",
+      "desc": "Medical treatment and diagnostics, psychological support events, and orphan support (education grants, food baskets, holiday clothing).",
+      "nums": [
+        { "v": "43", "l": "patients" }, { "v": "133", "l": "medical services" },
+        { "v": "144", "l": "children at events" }, { "v": "15", "l": "wigs" },
+        { "v": "18", "l": "education grants" }, { "v": "60", "l": "orphan families" }
+      ],
+      "images": []
+    },
+    {
+      "title": "Dr. Hala Saeed's Charitable Project",
+      "cats": ["relief"],
+      "date": "Feb 2023",
+      "funding": "With Latakia Governorate, Syria Trust for Development, Souria Btjmana",
+      "desc": "Launched on 8 Feb 2023 after the earthquake, in memory of the doctors who lost their lives. Food, medicine, shelter and relief supplies, while still supporting cancer patients.",
+      "nums": [
+        { "v": "~4,000", "l": "beneficiaries" }, { "v": "475", "l": "food baskets" },
+        { "v": "1,305", "l": "infant formula" }, { "v": "1,257", "l": "clothing" }
+      ],
+      "images": []
+    },
+    {
+      "title": "Supporting & Empowering Children with Cancer",
+      "cats": ["psy", "edu"],
+      "date": "UNHCR · Syria Trust for Development",
+      "funding": "",
+      "desc": "Psychosocial and recreational support, educational support, and awareness sessions for the families of children with cancer.",
+      "nums": [],
+      "images": []
+    },
+    {
+      "title": "Psychological Support Room Rehabilitation",
+      "cats": ["psy"],
+      "date": "Violet Organization · ActionAid",
+      "funding": "$1,000",
+      "desc": "Turned a gloomy hospital room into a safe, colorful activity space for children with cancer with a very small budget.",
+      "nums": [],
+      "images": []
+    },
+    {
+      "title": "Educational Sessions Program",
+      "cats": ["edu"],
+      "date": "Ongoing",
+      "funding": "",
+      "desc": "Closing learning gaps caused by long treatment, at the headquarters, in hospital or at home. Children who completed middle and high school certificates in 2024 were honored.",
+      "nums": [{ "v": "250+", "l": "sessions" }, { "v": "43", "l": "children (5-15 yrs)" }],
+      "images": []
+    },
+    {
+      "title": "Medical Program",
+      "cats": ["medical"],
+      "date": "Dec 2022 – 2026",
+      "funding": "",
+      "desc": "Free chemotherapy and diagnostics (PET, MRI, CT, tumor markers, histopathology with IHC, bone marrow and genetic testing) for pediatric and adult cancer patients.",
+      "nums": [{ "v": "350+", "l": "beneficiaries" }, { "v": "1,800", "l": "chemo doses" }, { "v": "220", "l": "tests" }],
+      "images": []
+    },
+    {
+      "title": "Childhood Cancer Awareness Campaign",
+      "cats": ["aware"],
+      "date": "Sept 2024",
+      "funding": "",
+      "desc": "Global Childhood Cancer Awareness Month campaign covering eight schools and several children's activity centers, supported by a media campaign.",
+      "nums": [{ "v": "8", "l": "schools" }],
+      "images": []
+    },
+    {
+      "title": "\"You Are Stronger Than Cancer\" Campaign",
+      "cats": ["psy", "aware"],
+      "date": "Ongoing",
+      "funding": "",
+      "desc": "Launched at the Cancer Survivor Ceremony to highlight survivor stories and give hope and determination to current patients.",
+      "nums": [],
+      "images": []
+    },
+    {
+      "title": "Coastal Disaster Relief",
+      "cats": ["relief"],
+      "date": "2024 – 2025",
+      "funding": "",
+      "desc": "Relief aid for victims of multiple disasters in the Syrian coastal region, including necessities for the elderly and children.",
+      "nums": [{ "v": "415", "l": "food baskets" }, { "v": "650", "l": "hygiene kits" }, { "v": "200", "l": "families clothed" }],
+      "images": []
+    },
+    {
+      "title": "Celebrations & Recreational Events",
+      "cats": ["psy"],
+      "date": "2023 – 2026",
+      "funding": "",
+      "desc": "Christmas, Eid al-Fitr, Eid al-Adha and World Cancer Day events for children with cancer and orphans, with partner organizations, plus yoga and sports activities.",
+      "nums": [{ "v": "9", "l": "events in 2025-26" }],
+      "images": []
+    }
+  ],
+  "research": [
+    { "tag": "Review · 2026", "title": "IgG fusion proteins for neurological disease", "desc": "Narrative review on IgG fusion proteins as a blood-brain barrier-crossing platform for Alzheimer's and Parkinson's, with prospects for stroke and TBI. Focus on CD98hc, insulin and transferrin receptors. Presented orally during the ICGEB/AEC course.", "link": "" },
+    { "tag": "In silico · 2026", "title": "Novel protein design for acute stroke", "desc": "Collaborative design of a novel protein for acute stroke, tested in silico with computational analysis of its protein folding.", "link": "" },
+    { "tag": "Multi-center", "title": "Global Neurotrauma Outcomes Study: Spine", "desc": "Leader of the data collection team at Tishreen University Hospital for the NIHR Global Health Research Group on Neurotrauma.", "link": "" },
+    { "tag": "Oncology", "title": "Pediatric oncology records", "desc": "Organized and standardized the medical records of ~200 pediatric oncology patients at the Cancer Research Center to support future retrospective studies. The workflow was sustained later through Ma'ak.", "link": "" },
+    { "tag": "Publication · 2023", "title": "Breast cancer awareness on the Syrian coast", "desc": "Cross-sectional study published in Annals of Medicine & Surgery.", "link": "" },
+    { "tag": "Next", "title": "Neuromatch-based research project", "desc": "Building a computational neuroscience research project following the Neuromatch Academy course.", "link": "" }
+  ],
+  "training": [
+    { "year": "Sep 2026", "cat": "bio", "title": "Fusion Protein Biotechnology: Design, Application and Innovation", "detail": "Atomic Energy Commission of Syria & ICGEB · Damascus · 7.5 h theory + 20 h practical. Cloning, mammalian cell culture, FPLC purification, Western blot, ELISA." },
+    { "year": "Jul–Sep 2026", "cat": "bio", "title": "Introduction to Bioinformatics (IBT2026)", "detail": "African Bioinformatics Institute & AfriGen-D · 72-hour online program: databases, Linux, alignment, phylogenetics, genomics." },
+    { "year": "Jul 2026", "cat": "neuro", "title": "Computational Neuroscience", "detail": "Neuromatch Academy · Model fitting, GLMs, dimensionality reduction, deep learning, dynamical systems, Bayesian decisions, reinforcement learning, network causality." },
+    { "year": "Jun 2026", "cat": "neuro", "title": "Digital Brain Twins in Clinical Research", "detail": "Charité · Online" },
+    { "year": "Nov 2025", "cat": "clin", "title": "Brain Stroke and Neuro ICU", "detail": "SAMS Institute · On-site · ASPECTS, mRS, NIHSS, intensive care for stroke patients." },
+    { "year": "Aug 2025", "cat": "clin", "title": "Critical Care Course (24 hours)", "detail": "On-site · ICU liberation, pain and agitation, delirium, sedation, sleep promotion, mechanical ventilation, sepsis." },
+    { "year": "Jul 2024", "cat": "neuro", "title": "Psychological First Aid", "detail": "Johns Hopkins University · Online" },
+    { "year": "Dec 2022", "cat": "neuro", "title": "Fundamental Neuroscience for Neuroimaging", "detail": "Johns Hopkins University · Online" },
+    { "year": "Feb 2021", "cat": "neuro", "title": "Medical Neuroscience", "detail": "Duke University · Online" },
+    { "year": "Dec 2020", "cat": "neuro", "title": "Childhood Adversity: Impact of Maltreatment on Mental Health", "detail": "University College London · Online" }
+  ],
+  "photos": []
+}
