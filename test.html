@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex"><title>Connection test</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#e6f7f6;color:#0f2a33;margin:0;padding:16px;line-height:1.5}
+.c{max-width:640px;margin:0 auto}
+button{background:#0e9aa7;color:#fff;border:0;border-radius:12px;padding:12px 18px;font-size:1rem;font-weight:600}
+.r{background:#fff;border:1px solid #c4e8e6;border-radius:12px;padding:10px 12px;margin:8px 0;font-size:.9rem;word-break:break-word}
+.ok{border-left:6px solid #1aa37a}.bad{border-left:6px solid #d33}.warn{border-left:6px solid #e0a100}
+b{display:block}
+</style></head><body><div class="c">
+<h2>GitHub connection test</h2>
+<p>Press the button and send me a screenshot of the result.</p>
+<p><button id="go">Run test</button></p>
+<div id="out"></div>
+<script>
+const out=document.getElementById('out');
+const add=(cls,t,d)=>{out.insertAdjacentHTML('beforeend',`<div class="r ${cls}"><b>${t}</b>${d||''}</div>`)};
+const R='ibrahemabboud97th-pixel/Portfolio';
+document.getElementById('go').onclick=async()=>{
+  out.innerHTML='';
+  let tok='';try{tok=localStorage.getItem('adm_token')||''}catch(e){}
+  if(!tok)add('warn','1. Saved GitHub key','No key saved on this device yet (open admin.html and paste it first).');
+  else{
+    const bad=[];
+    if(/[^\x21-\x7e]/.test(tok))bad.push('contains spaces/new lines/non-English characters');
+    if(!/^(github_pat_|ghp_)/.test(tok))bad.push('does not start with github_pat_ or ghp_');
+    add(bad.length?'bad':'ok','1. Saved GitHub key','length '+tok.length+', starts with "'+tok.slice(0,11)+'…" '+(bad.length?'→ PROBLEM: '+bad.join('; '):'→ format looks fine'));
+  }
+  const t=async(label,fn)=>{try{const r=await fn();add(r.ok?'ok':'warn',label,'HTTP '+r.status+(r.note?' · '+r.note:''))}catch(e){add('bad',label,'FAILED → '+e.name+': '+e.message)}};
+  await t('2. Open GitHub API, no headers',async()=>{const r=await fetch('https://api.github.com/zen');return{ok:r.ok,status:r.status}});
+  await t('3. Read the repo, public (Accept header only)',async()=>{const r=await fetch('https://api.github.com/repos/'+R,{headers:{Accept:'application/vnd.github+json'}});return{ok:r.ok,status:r.status}});
+  if(tok){
+    await t('4. Read the repo WITH your key (this is what the panel does)',async()=>{const r=await fetch('https://api.github.com/repos/'+R,{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'}});
+      return{ok:r.ok,status:r.status,note:r.status===401?'key rejected (expired/wrong)':r.status===404?'key has no access to this repository':r.ok?'works':''}});
+    await t('5. Read content.json through the API',async()=>{const r=await fetch('https://api.github.com/repos/'+R+'/contents/content.json',{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'}});
+      return{ok:r.ok,status:r.status,note:r.ok?'':'check "Contents" permission and that content.json exists in the repo root'}});
+  }
+  await t('6. Read content.json from the site itself',async()=>{const r=await fetch('content.json?t='+Date.now());return{ok:r.ok,status:r.status}});
+};
+</script></div></body></html>
