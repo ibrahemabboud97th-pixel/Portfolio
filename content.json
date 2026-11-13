@@ -1,0 +1,285 @@
+{
+  "version": 2,
+  "site": {
+    "title": "Dr. Ibrahem Abboud | Anesthesiology, Neuroscience & Humanitarian Leadership",
+    "description": "Anesthesiology & ICU resident, neuroscience researcher and co-founder of Ma'ak Association for supporting cancer patients. Latakia, Syria.",
+    "brand": "Dr. Ibrahem Abboud",
+    "tagline": "Anesthesiology & ICU Resident · Neuroscience",
+    "logo": "IA",
+    "navCta": "Get in touch",
+    "footer": "© 2026 Dr. Ibrahem Abboud · Latakia, Syria"
+  },
+  "sections": [
+    {
+      "type": "hero", "id": "home", "visible": true,
+      "badge": "Open to research collaborations & fellowships",
+      "kicker": "Dr. Ibrahem Abboud · Anesthesiology & ICU Resident",
+      "title": "Medicine begins with *empathy*.",
+      "lead": "It is the most important quality I find in myself. It helps me feel for others, connect with them, break down barriers and build rapport, in the operating room, at the ICU bedside, in research and in the charity I co-founded.",
+      "quote": "\"My sensitive nature comes from past personal experiences that make me care deeply about healing the suffering of others.\"",
+      "buttons": [
+        { "label": "Explore Ma'ak work →", "href": "#maak", "style": "primary" },
+        { "label": "🔬 My research (ORCID)", "href": "https://orcid.org/0000-0001-7927-5020", "style": "ghost" },
+        { "label": "Download CV", "href": "cv/Ibrahem_Abboud_CV.pdf", "style": "ghost" }
+      ],
+      "image": "images/profile.jpg",
+      "location": "Latakia, Syria"
+    },
+    {
+      "type": "stats", "id": "stats", "visible": true,
+      "items": [
+        { "kicker": "Clinical", "value": "900+", "label": "Surgeries assisted under anesthesia" },
+        { "kicker": "Research", "value": "5", "label": "Research projects & outputs" },
+        { "kicker": "Learning", "value": "10", "label": "Courses & trainings completed" },
+        { "kicker": "Humanitarian", "value": "10,000+", "label": "Beneficiaries reached through Ma'ak" }
+      ]
+    },
+    {
+      "type": "section", "id": "about", "nav": "About", "visible": true, "bg": "plain",
+      "eyebrow": "Research profile",
+      "title": "Three pillars, one purpose",
+      "subtitle": "Clinical practice, academic research and science communication, held together by a commitment to humanitarian action.",
+      "blocks": [
+        { "type": "text", "text": "I am a medical graduate of Latakia University (formerly Tishreen University) and an anesthesiology resident. Daily work in the operating room and the neuro-ICU gives me a firsthand view of how anesthetic agents modulate central nervous system function and how patients with stroke or TBI recover consciousness.\n\nThat clinical view drives my research: molecular strategies to cross the blood-brain barrier, computational models of neural circuits, and better neuromonitoring (such as EEG) in resource-limited hospitals.\n\nAlongside medicine, I co-founded a charity for cancer patients. It taught me that healthcare and humanitarian commitment are deeply intertwined, and that results are measured by what you achieve despite the constraints." },
+        { "type": "chips", "items": [
+          { "text": "Neurocritical care", "style": "" }, { "text": "Neuropharmacology", "style": "" }, { "text": "Blood-brain barrier", "style": "" },
+          { "text": "Computational neuroscience", "style": "v" }, { "text": "Fusion proteins", "style": "v" }, { "text": "EEG monitoring", "style": "v" },
+          { "text": "Neurodegeneration", "style": "" }, { "text": "Deep brain stimulation", "style": "" }
+        ] },
+        { "type": "cards", "columns": "2", "variant": "card", "items": [
+          { "icon": "🎯", "title": "Mission", "text": "To use medical science for patients through new research, especially in neuroscience, neurodegenerative disease and deep brain stimulation, and to serve the sick and the vulnerable." },
+          { "icon": "💙", "title": "Core values", "text": "Compassion · Cooperation · Giving · Honesty & transparency · Responsibility · Scientific approach · Renewal & creativity" }
+        ] }
+      ]
+    },
+    {
+      "type": "section", "id": "clinical", "nav": "Clinical", "visible": true, "bg": "alt",
+      "eyebrow": "Clinical experience",
+      "title": "Anesthesiology & Intensive Care",
+      "subtitle": "Resident at Latakia University Hospital (formerly Tishreen University Hospital) since March 2023.",
+      "blocks": [
+        { "type": "timeline", "items": [
+          { "date": "2023", "title": "Residency begins", "text": "Perioperative care for diverse surgical cases, with a focus on neuropharmacology and preoperative optimization for patients with neurological or psychiatric conditions." },
+          { "date": "Ongoing", "title": "Neuro-ICU & surgical ICU", "text": "Daily neurological assessment of neurocritical patients (stroke, TBI), managing delirium and sedation-related altered consciousness; supervising first-year residents and protocol adherence." },
+          { "date": "Ongoing", "title": "Emergency on-call", "text": "Multiple-trauma cases with neurological and vital assessment in the surgical emergency department." },
+          { "date": "Hospital initiatives", "title": "Protocols & forms", "text": "Contributed to the pre-operative preparation form and hospital-specific protocols for surgical preparation." }
+        ] },
+        { "type": "cards", "columns": "3", "variant": "card", "items": [
+          { "icon": "🩺", "title": "Procedures & volume", "text": "- 900+ surgeries assisted (general, spinal, sedation)\n- 11 surgeries for critical neurological patients\n- 30+ central venous catheters\n- 70+ anesthetic lumbar punctures, plus diagnostic and therapeutic punctures" },
+          { "icon": "🎓", "title": "Teaching", "text": "Clinical anesthesia lessons for 4th-year medical students: drug effects, resuscitation, airway management and clinical cases; lectures to colleagues on advanced ICU topics." },
+          { "icon": "🧠", "title": "Looking ahead", "text": "Advanced neuromonitoring such as EEG during surgery and in the ICU is still missing locally. I aim to turn my theoretical training in it into practice." }
+        ] },
+        { "type": "gallery", "layout": "strip", "columns": "3", "emptyText": "", "images": [] }
+      ]
+    },
+    {
+      "type": "section", "id": "research", "nav": "Research", "visible": true, "bg": "plain",
+      "eyebrow": "Research",
+      "title": "Neuroscience & molecular biology",
+      "subtitle": "Projects, interests and outputs.",
+      "blocks": [
+        { "type": "callout", "style": "plain", "title": "🔬 My research profile", "text": "All my publications and research activity in one place.", "image": "", "buttons": [
+          { "label": "ORCID: 0000-0001-7927-5020 ↗", "href": "https://orcid.org/0000-0001-7927-5020", "style": "teal" },
+          { "label": "LinkedIn ↗", "href": "https://www.linkedin.com/in/ibrahem-abboud-80a1101bb", "style": "outline" }
+        ] },
+        { "type": "cards", "columns": "3", "variant": "card", "pages": true, "items": [
+          { "tag": "Review · 2026", "title": "IgG fusion proteins for neurological disease", "text": "Narrative review on IgG fusion proteins as a blood-brain barrier-crossing platform for Alzheimer's and Parkinson's, with prospects for stroke and TBI. Focus on CD98hc, insulin and transferrin receptors. Presented orally during the ICGEB/AEC course.", "chipStyle": "v" },
+          { "tag": "In silico · 2026", "title": "Novel protein design for acute stroke", "text": "Collaborative design of a novel protein for acute stroke, tested in silico with computational analysis of its protein folding.", "chipStyle": "v" },
+          { "tag": "Multi-center", "title": "Global Neurotrauma Outcomes Study: Spine", "text": "Leader of the data collection team at Tishreen University Hospital for the NIHR Global Health Research Group on Neurotrauma." },
+          { "tag": "Oncology", "title": "Pediatric oncology records", "text": "Organized and standardized the medical records of ~200 pediatric oncology patients at the Cancer Research Center to support future retrospective studies. The workflow was sustained later through Ma'ak." },
+          { "tag": "Publication · 2023", "title": "Breast cancer awareness on the Syrian coast", "text": "Cross-sectional study published in Annals of Medicine & Surgery." },
+          { "tag": "Next", "title": "Neuromatch-based research project", "text": "Building a computational neuroscience research project following the Neuromatch Academy course.", "chipStyle": "v" }
+        ] },
+        { "type": "heading", "text": "Recognition & outputs" },
+        { "type": "cards", "columns": "3", "variant": "card", "items": [
+          { "title": "📄 Publication", "text": "Annals of Medicine & Surgery, 2023." },
+          { "title": "🏅 Certificate of Appreciation", "text": "18th Scientific Conference, Faculty of Medicine, Latakia University, for research and scientific contributions." },
+          { "title": "🎤 Presentations", "text": "Oral presentation of the fusion protein review; participant at the 2nd Molecular Pathology Conference in Syria." }
+        ] },
+        { "type": "gallery", "layout": "strip", "columns": "3", "emptyText": "", "images": [] }
+      ]
+    },
+    {
+      "type": "section", "id": "maak", "nav": "Ma'ak", "visible": true, "bg": "violet",
+      "eyebrow": "Humanitarian leadership",
+      "title": "Ma'ak Association for Supporting Cancer Patients",
+      "subtitle": "From a student volunteer initiative in 2019 to a licensed NGO supporting cancer patients, orphans and disaster-affected families.",
+      "blocks": [
+        { "type": "callout", "style": "violet", "title": "Co-founder & executive leader", "text": "After our volunteer team \"We Care\" had to stop, I co-founded Ma'ak to keep children's cancer care alive. I handled the legal process across several governorates until we received our license (Ministry of Social Affairs and Labor, No. 2789, 22 Nov 2022).\n\nI built the core departments from scratch (Medical, HR, Media, Finance), authored the annual strategic plans, and represented the association in health-sector coordination meetings with the WHO, while staying on the ground in psychosocial sessions with children.", "image": "images/maak-logo.png", "buttons": [
+          { "label": "Ma'ak on Facebook ↗", "href": "https://www.facebook.com/share/1BnfCkTg3w/", "style": "primary" }
+        ] },
+        { "type": "heading", "text": "Impact at a glance" },
+        { "type": "stats", "columns": "4", "items": [
+          { "kicker": "", "value": "10,000+", "label": "Beneficiaries across all sectors" },
+          { "kicker": "", "value": "350+", "label": "Beneficiaries of the Medical Program" },
+          { "kicker": "", "value": "1,800", "label": "Chemotherapy doses provided" },
+          { "kicker": "", "value": "220", "label": "Diagnostic & follow-up tests" },
+          { "kicker": "", "value": "1,000+", "label": "Psychological support sessions" },
+          { "kicker": "", "value": "250+", "label": "Educational sessions" },
+          { "kicker": "", "value": "390", "label": "Volunteers in the structure" },
+          { "kicker": "", "value": "2019", "label": "Started as a student initiative" }
+        ] },
+        { "type": "heading", "text": "My roles over time" },
+        { "type": "timeline", "items": [
+          { "date": "2019", "title": "\"We Care\" volunteer team", "text": "Started with fellow 4th-year medical students, covering the needs of children in the oncology building at Latakia University Hospital (1,000+ doses annually)." },
+          { "date": "22 Nov 2022 – 20 Mar 2024", "title": "Chairman of the Board", "text": "Led the legal registration across governorates and the official launch of activities in December 2022." },
+          { "date": "20 Mar 2024 – 13 Mar 2025", "title": "Executive Director & Head of the Medical Program", "text": "Built the medical program structure, managed medical files and treatment services, oversaw ~20 department heads, and developed the 2024 and 2025 annual strategic plans." },
+          { "date": "13 Mar 2025 – 23 Apr 2026", "title": "Board Advisor & Strategic Planning Director", "text": "Authored the main developmental plan (60 worksheets), designed policies and procedures, and coordinated partners and donors." },
+          { "date": "23 Apr 2026 – Present", "title": "Board Treasurer & Project Manager", "text": "Managing finances and project delivery across health, psychosocial, educational and relief sectors." }
+        ] },
+        { "type": "heading", "text": "Projects I led" },
+        { "type": "cards", "columns": "3", "variant": "card", "pages": true,
+          "filters": [ { "key": "medical", "label": "Medical" }, { "key": "psy", "label": "Psychosocial" }, { "key": "edu", "label": "Education" }, { "key": "relief", "label": "Relief" }, { "key": "aware", "label": "Awareness" } ],
+          "items": [
+            { "id": "support-cancer-patients-orphans", "title": "Support for Cancer Patients & Orphans", "cats": "medical, relief, psy", "date": "Feb–Apr 2026", "tag": "$10,000 · Rahma Worldwide & Syrian American Council", "chipStyle": "v",
+              "text": "Medical treatment and diagnostics, psychological support events, and orphan support (education grants, food baskets, holiday clothing).",
+              "facts": [ { "v": "43", "l": "patients" }, { "v": "133", "l": "medical services" }, { "v": "144", "l": "children at events" }, { "v": "15", "l": "wigs" }, { "v": "18", "l": "education grants" }, { "v": "60", "l": "orphan families" } ],
+              "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "dr-hala-saeed-project", "title": "Dr. Hala Saeed's Charitable Project", "cats": "relief", "date": "Feb 2023", "tag": "Latakia Governorate · Syria Trust · Souria Btjmana", "chipStyle": "v",
+              "text": "Launched on 8 Feb 2023 after the earthquake, in memory of the doctors who lost their lives. Food, medicine, shelter and relief supplies, while still supporting cancer patients.",
+              "facts": [ { "v": "~4,000", "l": "beneficiaries" }, { "v": "475", "l": "food baskets" }, { "v": "1,305", "l": "infant formula" }, { "v": "1,257", "l": "clothing" } ],
+              "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "supporting-empowering-children", "title": "Supporting & Empowering Children with Cancer", "cats": "psy, edu", "date": "UNHCR · Syria Trust for Development",
+              "text": "Psychosocial and recreational support, educational support, and awareness sessions for the families of children with cancer.",
+              "facts": [], "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "psychological-support-room", "title": "Psychological Support Room Rehabilitation", "cats": "psy", "date": "Violet Organization · ActionAid", "tag": "$1,000", "chipStyle": "v",
+              "text": "Turned a gloomy hospital room into a safe, colorful activity space for children with cancer with a very small budget.",
+              "facts": [], "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "educational-sessions", "title": "Educational Sessions Program", "cats": "edu", "date": "Ongoing",
+              "text": "Closing learning gaps caused by long treatment, at the headquarters, in hospital or at home. Children who completed middle and high school certificates in 2024 were honored.",
+              "facts": [ { "v": "250+", "l": "sessions" }, { "v": "43", "l": "children (5-15 yrs)" } ],
+              "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "medical-program", "title": "Medical Program", "cats": "medical", "date": "Dec 2022 – 2026",
+              "text": "Free chemotherapy and diagnostics (PET, MRI, CT, tumor markers, histopathology with IHC, bone marrow and genetic testing) for pediatric and adult cancer patients.",
+              "facts": [ { "v": "350+", "l": "beneficiaries" }, { "v": "1,800", "l": "chemo doses" }, { "v": "220", "l": "tests" } ],
+              "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "childhood-cancer-awareness", "title": "Childhood Cancer Awareness Campaign", "cats": "aware", "date": "Sept 2024",
+              "text": "Global Childhood Cancer Awareness Month campaign covering eight schools and several children's activity centers, supported by a media campaign.",
+              "facts": [ { "v": "8", "l": "schools" } ], "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "stronger-than-cancer", "title": "\"You Are Stronger Than Cancer\" Campaign", "cats": "psy, aware", "date": "Ongoing",
+              "text": "Launched at the Cancer Survivor Ceremony to highlight survivor stories and give hope and determination to current patients.",
+              "facts": [], "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "coastal-disaster-relief", "title": "Coastal Disaster Relief", "cats": "relief", "date": "2024 – 2025",
+              "text": "Relief aid for victims of multiple disasters in the Syrian coastal region, including necessities for the elderly and children.",
+              "facts": [ { "v": "415", "l": "food baskets" }, { "v": "650", "l": "hygiene kits" }, { "v": "200", "l": "families clothed" } ],
+              "body": "", "images": [], "layout": "grid", "cols": "3" },
+            { "id": "celebrations-events", "title": "Celebrations & Recreational Events", "cats": "psy", "date": "2023 – 2026",
+              "text": "Christmas, Eid al-Fitr, Eid al-Adha and World Cancer Day events for children with cancer and orphans, with partner organizations, plus yoga and sports activities.",
+              "facts": [ { "v": "9", "l": "events in 2025-26" } ], "body": "", "images": [], "layout": "grid", "cols": "3" }
+          ] },
+        { "type": "cards", "columns": "1", "variant": "card", "items": [
+          { "title": "Community health activities", "text": "Regular blood donation campaigns (about 3 per year), medical points at public events, pharmaceutical support to medical points during the earthquake response, and infection-prevention awareness with the Syrian Arab Red Crescent." },
+          { "title": "Management & humanitarian training (UNDP CEP · WHO · UNICEF · GOPA-DERD)", "text": "Managing civil society organizations, financial and project management, Psychological First Aid, psychosocial support, parental care, life skills, initiative and disaster management." }
+        ] },
+        { "type": "gallery", "layout": "strip", "columns": "3", "emptyText": "", "images": [] }
+      ]
+    },
+    {
+      "type": "section", "id": "skills", "nav": "Skills", "visible": true, "bg": "alt",
+      "eyebrow": "Technical & laboratory",
+      "title": "Skills",
+      "subtitle": "From wet-lab protein work to sequence analysis and neural modeling.",
+      "blocks": [
+        { "type": "cards", "columns": "3", "variant": "card", "items": [
+          { "title": "🧬 Molecular biology", "chips": "Recombinant plasmid insertion (E. coli), Selective agar culture, Colony PCR, Gel electrophoresis, Cloning" },
+          { "title": "🔬 Cell culture & analysis", "chips": "Aseptic mammalian culture, Cell counting, Transient transfection (GFP / mCherry / GH), Fluorescence microscopy, Plate reader, Flow cytometry" },
+          { "title": "🧪 Protein analysis", "chips": "Cell lysis, FPLC (ÄKTA), Affinity purification, Bradford, SDS-PAGE, Western blot, Sandwich ELISA, CBA" },
+          { "title": "💻 Bioinformatics", "chipStyle": "v", "chips": "NCBI · EBI · UniProt · PubMed, Linux & CLI, BLAST, Clustal Omega · MAFFT · MUSCLE · T-Coffee · COBALT, Jalview · WebLogo, Phylogenetics, VCF · HGVS · Ensembl VEP" },
+          { "title": "🧠 Neuroscience & modeling", "chipStyle": "v", "chips": "Neurophysiology & neuroanatomy, Neuroplasticity & neurocircuitry, fMRI & EEG principles, Python, GLMs · Dynamical systems · Deep learning · RL" },
+          { "title": "🗣️ Communication", "chips": "Clinical teaching, Scientific presentation, Patient communication, Debate training, Dialogue facilitation" }
+        ] },
+        { "type": "heading", "text": "Languages" },
+        { "type": "bars", "items": [
+          { "label": "Arabic", "note": "Native", "value": "100" },
+          { "label": "English", "note": "C1", "value": "85" },
+          { "label": "German", "note": "A2", "value": "35" }
+        ] }
+      ]
+    },
+    {
+      "type": "section", "id": "training", "nav": "Training", "visible": true, "bg": "plain",
+      "eyebrow": "Professional development",
+      "title": "Courses & training",
+      "subtitle": "Online and on-site programs in neuroscience, critical care, bioinformatics and biotechnology.",
+      "blocks": [
+        { "type": "cards", "columns": "1", "variant": "row",
+          "filters": [ { "key": "neuro", "label": "Neuroscience" }, { "key": "bio", "label": "Biotech & bioinformatics" }, { "key": "clin", "label": "Clinical" } ],
+          "items": [
+            { "date": "Sep 2026", "cats": "bio", "title": "Fusion Protein Biotechnology: Design, Application and Innovation", "text": "Atomic Energy Commission of Syria & ICGEB · Damascus · 7.5 h theory + 20 h practical. Cloning, mammalian cell culture, FPLC purification, Western blot, ELISA." },
+            { "date": "Jul–Sep 2026", "cats": "bio", "title": "Introduction to Bioinformatics (IBT2026)", "text": "African Bioinformatics Institute & AfriGen-D · 72-hour online program: databases, Linux, alignment, phylogenetics, genomics." },
+            { "date": "Jul 2026", "cats": "neuro", "title": "Computational Neuroscience", "text": "Neuromatch Academy · Model fitting, GLMs, dimensionality reduction, deep learning, dynamical systems, Bayesian decisions, reinforcement learning, network causality." },
+            { "date": "Jun 2026", "cats": "neuro", "title": "Digital Brain Twins in Clinical Research", "text": "Charité · Online" },
+            { "date": "Nov 2025", "cats": "clin", "title": "Brain Stroke and Neuro ICU", "text": "SAMS Institute · On-site · ASPECTS, mRS, NIHSS, intensive care for stroke patients." },
+            { "date": "Aug 2025", "cats": "clin", "title": "Critical Care Course (24 hours)", "text": "On-site · ICU liberation, pain and agitation, delirium, sedation, sleep promotion, mechanical ventilation, sepsis." },
+            { "date": "Jul 2024", "cats": "neuro", "title": "Psychological First Aid", "text": "Johns Hopkins University · Online" },
+            { "date": "Dec 2022", "cats": "neuro", "title": "Fundamental Neuroscience for Neuroimaging", "text": "Johns Hopkins University · Online" },
+            { "date": "Feb 2021", "cats": "neuro", "title": "Medical Neuroscience", "text": "Duke University · Online" },
+            { "date": "Dec 2020", "cats": "neuro", "title": "Childhood Adversity: Impact of Maltreatment on Mental Health", "text": "University College London · Online" }
+          ] },
+        { "type": "heading", "text": "Education" },
+        { "type": "cards", "columns": "1", "variant": "card", "items": [
+          { "date": "2015 – 2022 · Latakia", "title": "Doctor of Medicine (MD), Latakia University (formerly Tishreen University)", "text": "Final grade 89.8%, ranked among the top 10 students of the cohort in 3 academic years." }
+        ] },
+        { "type": "heading", "text": "Reading & self-study" },
+        { "type": "text", "text": "Neuroscience and neural modeling books, and further online and on-site courses, will be listed here." }
+      ]
+    },
+    {
+      "type": "section", "id": "teaching", "nav": "Teaching", "visible": true, "bg": "alt",
+      "eyebrow": "Teaching, outreach & leadership",
+      "title": "Sharing knowledge",
+      "subtitle": "Teaching, science communication, debate, dialogue and international engagement.",
+      "blocks": [
+        { "type": "cards", "columns": "3", "variant": "card", "pages": true, "items": [
+          { "icon": "🌐", "title": "Neuromatch Ambassador", "text": "Communications & Outreach, since Sept 2026. Representing the Academy to prospective students and giving talks to universities and community groups." },
+          { "icon": "🌊", "title": "Mediterranean Student Summit 5", "text": "Speaker & student representative, Urbino, Italy (Sept 2026). Presented on intercultural dialogue on campus and now coordinates the implementation of the summit recommendations at Latakia University." },
+          { "icon": "🎙️", "title": "Parliamentary debate trainer", "text": "2024. About 40 training hours for two cohorts on critical thinking, logic and structured argumentation, including the Golgi–Cajal debate as a lesson from neuroscience history." },
+          { "icon": "🤝", "title": "Dialogue facilitator", "text": "National Team for Facilitating and Managing Dialogue Sessions (2024). Designed and facilitated 6 sessions; now working to reactivate student dialogue at Latakia University." },
+          { "icon": "👨‍🏫", "title": "Medical education", "text": "Lessons for 4th-year students on pharmacology, resuscitation, airway management and clinical cases." },
+          { "icon": "📣", "title": "Science communication", "text": "Sharing medical knowledge through Osmosis and neuroscience through the Neuromatch ambassador role." }
+        ] },
+        { "type": "gallery", "layout": "strip", "columns": "3", "emptyText": "", "images": [] }
+      ]
+    },
+    {
+      "type": "section", "id": "gallery", "nav": "Gallery", "visible": true, "bg": "plain",
+      "eyebrow": "Moments",
+      "title": "Gallery",
+      "subtitle": "Photos from the hospital, the lab, trainings and the field.",
+      "blocks": [
+        { "type": "gallery", "layout": "masonry", "columns": "3", "emptyText": "Photos coming soon.", "images": [] }
+      ]
+    },
+    {
+      "type": "section", "id": "future", "nav": "Plans", "visible": true, "bg": "alt",
+      "eyebrow": "What's next",
+      "title": "Plans & direction",
+      "subtitle": "",
+      "blocks": [
+        { "type": "cards", "columns": "3", "variant": "card", "items": [
+          { "icon": "🔭", "title": "Neuroscience research", "text": "Move to larger research labs to take my goals to the next level, building toward PhD research in cognitive neuroscience." },
+          { "icon": "⚡", "title": "Applied neuromonitoring", "text": "Bring EEG-based monitoring into the operating room and the ICU." },
+          { "icon": "🌱", "title": "Scaling impact", "text": "Keep expanding Ma'ak's model to other hospitals and governorates, and continue spreading medical and neuroscience knowledge." }
+        ] },
+        { "type": "callout", "style": "plain", "title": "My approach", "text": "What matters is not only the quantity of what I achieve but what I manage to accomplish despite difficulties. Whether resources are scarce or plentiful, I adapt to reality and invest everything available to multiply the result. In Ma'ak's first three years we worked with very limited funding and still reached thousands.", "image": "", "buttons": [] }
+      ]
+    },
+    {
+      "type": "contact", "id": "contact", "visible": true,
+      "title": "Let's connect",
+      "text": "Open to collaborations in neuroscience research, computational and biological data science, fellowships, and humanitarian health initiatives.",
+      "links": [
+        { "icon": "✉️", "label": "Personal email", "value": "ibrahemabboud97th@gmail.com", "href": "mailto:ibrahemabboud97th@gmail.com" },
+        { "icon": "🎓", "label": "Academic email", "value": "ibrahem.a.abboud@latakia-univ.edu.sy", "href": "mailto:ibrahem.a.abboud@latakia-univ.edu.sy" },
+        { "icon": "📞", "label": "Phone / WhatsApp", "value": "+963 997 891 260", "href": "tel:+963997891260" },
+        { "icon": "💼", "label": "LinkedIn", "value": "ibrahem-abboud", "href": "https://www.linkedin.com/in/ibrahem-abboud-80a1101bb" },
+        { "icon": "📘", "label": "Facebook", "value": "Ibrahem Adnan Abboud", "href": "https://www.facebook.com/ibrahem.adnan.abboud?mibextid=ZbWKwL" },
+        { "icon": "🆔", "label": "ORCID", "value": "0000-0001-7927-5020", "href": "https://orcid.org/0000-0001-7927-5020" }
+      ],
+      "cvTitle": "Curriculum Vitae",
+      "cvText": "The up-to-date CV in PDF format, for fellowships and applications.",
+      "cvLabel": "Download CV (PDF)",
+      "cvHref": "cv/Ibrahem_Abboud_CV.pdf"
+    }
+  ]
+}

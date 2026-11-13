@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Control Panel</title>
+<style>
+:root{--deep:#06303b;--teal:#0e9aa7;--aqua:#2dd4c5;--violet:#7c6fd6;--line:#c4e8e6;--muted:#4d6d77}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:linear-gradient(180deg,#c9f2ee,#e6f7f6);color:#0f2a33;min-height:100vh;line-height:1.5}
+.wrap{max-width:900px;margin:0 auto;padding:14px}
+h1{font-size:1.2rem;color:var(--deep)}
+h4.sep{margin:20px 0 4px;padding-top:12px;border-top:2px dashed var(--line);color:var(--violet);font-size:.9rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 8px 24px -14px rgba(6,70,80,.35);margin-bottom:14px}
+label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin:12px 0 5px}
+input,textarea,select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:.95rem;background:#fbfffe}
+textarea{min-height:80px;resize:vertical}
+input[type=checkbox]{width:auto}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--aqua);border-color:var(--aqua)}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:9px 14px;font-weight:600;font-size:.88rem}
+button:disabled{opacity:.5;cursor:not-allowed}
+.p{background:linear-gradient(135deg,var(--teal),var(--aqua));color:#04252c}
+.s{background:#eaf7f6;color:var(--deep);border:1px solid var(--line)}
+.d{background:#fde8e8;color:#a32020}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
+.tab{background:#fff;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tab.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+.msg{padding:12px 14px;border-radius:12px;margin:10px 0;font-size:.9rem;word-break:break-word}
+.ok{background:#dcfaf0;color:#07583f}.err{background:#fde8e8;color:#8a1c1c}.info{background:#eef0ff;color:#3b3590}
+ol{padding-left:20px;font-size:.88rem;color:var(--muted)}ol li{margin:5px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.rem{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.85rem;color:var(--muted)}
+.rem input{width:auto}
+.chk{display:flex;align-items:center;gap:8px;margin:12px 0 0;font-weight:500}
+.hint{font-size:.76rem;color:var(--muted);margin-top:4px}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;background:#f0fbfa;border-radius:8px}
+code{padding:1px 5px}pre{padding:10px;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:8px}
+.srow{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin-bottom:8px}
+.srow.off{opacity:.55}
+.srow b{display:block;font-size:.92rem}.srow small{color:var(--muted)}
+.act{display:flex;gap:5px;flex:none;flex-wrap:wrap;justify-content:flex-end}
+.act button{padding:7px 10px}
+details.li{background:#fbfffe;border:1px solid var(--line);border-radius:14px;margin:8px 0}
+details.li>summary{list-style:none;display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 12px;cursor:pointer}
+details.li>summary::-webkit-details-marker{display:none}
+details.li>summary .t{font-weight:600;font-size:.9rem;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+details.li>summary .t::before{content:'▸ ';color:var(--teal)}
+details.li[open]>summary .t::before{content:'▾ '}
+details.li>.body{padding:0 12px 14px;border-top:1px solid var(--line)}
+.li .li{background:#fff}
+.addrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.addrow select{width:auto;flex:1;min-width:140px}
+.gal-ed .g{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px;margin-bottom:6px}
+.gal-ed img,.thumb{width:56px;height:56px;object-fit:cover;border-radius:8px;background:#eaf7f6;flex:none}
+.thumb{width:auto;height:auto;max-width:140px;max-height:90px;margin-top:8px;display:block}
+.gal-ed input{flex:1;min-width:0}
+#bar{position:sticky;bottom:10px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 12px;display:flex;gap:10px;align-items:center;justify-content:space-between;box-shadow:0 10px 30px -10px rgba(6,70,80,.5);z-index:5}
+#flash{position:fixed;left:50%;transform:translateX(-50%);bottom:84px;max-width:92vw;z-index:30}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 1) LOGIN -->
+<div id="gate">
+  <div class="card">
+    <h1>🔐 Control Panel</h1>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:6px">Sign in to edit the website.</p>
+    <label>Username</label><input id="u" autocomplete="username" autocapitalize="off">
+    <label>Password</label><input id="pw" type="password" autocomplete="current-password">
+    <label class="rem"><input type="checkbox" id="remember" checked> Keep me signed in on this device</label>
+    <div class="row"><button class="p" id="loginBtn">Sign in</button></div>
+    <div id="loginMsg"></div>
+  </div>
+</div>
+
+<!-- 2) ONE-TIME TOKEN -->
+<div id="tokenSetup" style="display:none">
+  <div class="card">
+    <h1>🔗 Connect to GitHub (one time only)</h1>
+    <p style="color:var(--muted);font-size:.9rem;margin:6px 0 10px">Paste your GitHub key once. This browser remembers it.</p>
+    <ol>
+      <li>Open <b>github.com/settings/personal-access-tokens/new</b></li>
+      <li>Repository access → <b>Only select repositories</b> → <b>Portfolio</b></li>
+      <li>Permissions → <b>Contents: Read and write</b></li>
+      <li>Generate token, copy it, paste it below</li>
+    </ol>
+    <label>GitHub token</label><input id="tok" type="password" placeholder="github_pat_..." autocomplete="off">
+    <div class="row"><button class="p" id="tokBtn">Save &amp; continue</button><button class="s" id="tokOut">Sign out</button></div>
+    <div id="tokMsg"></div>
+  </div>
+</div>
+
+<!-- 3) APP -->
+<div id="app" style="display:none">
+  <div class="top"><h1>🎛️ Website editor</h1>
+    <div class="act"><button class="s" id="viewSite">View site</button><button class="s" id="chPw">Change password</button><button class="s" id="logout">Sign out</button></div></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="view"></div>
+  <div id="appMsg"></div>
+  <div style="height:80px"></div>
+  <div id="bar"><span id="dirty" style="font-size:.85rem;color:var(--muted)">No unsaved changes</span>
+    <div class="act"><button class="s" id="backup">⬇ Backup</button><button class="p" id="saveAll" disabled>Save to website</button></div></div>
+</div>
+<div id="flash"></div>
+<input type="file" id="file" accept="image/*" style="display:none">
+</div>
+
+<script>
+/* =====================================================================
+   CONFIG — edit only this block
+   ===================================================================== */
+const CONFIG = {
+  REPO:   'ibrahemabboud97th-pixel/Portfolio',
+  BRANCH: 'main',
+  SALT:   'maak-salt-2026',
+  USER:   'ibrahem',
+  // SHA-256 of  SALT:USER:PASSWORD   (use the "Change password" button to generate a new one)
+  PASS_HASH: '2163e11da2f5e265f5486e87e9a4ef589e1449309d8fca43ddbf37fa405e159a'
+};
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function h(tag,attrs,...kids){
+  const e=document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs||{})){
+    if(k==='class')e.className=v;
+    else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);
+    else if(v===true)e.setAttribute(k,'');
+    else if(v!==false&&v!=null)e.setAttribute(k,v);
+  }
+  for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:document.createTextNode(c))}
+  return e;
+}
+const clone=o=>JSON.parse(JSON.stringify(o));
+const slug=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,48);
+
+let data=null,sha=null,dirty=false,offline=false,branch=CONFIG.BRANCH,view={name:'sections'};
+const store={
+  get(k){try{return localStorage.getItem(k)}catch(e){return null}},
+  set(k,v){try{localStorage.setItem(k,v)}catch(e){}},
+  del(k){try{localStorage.removeItem(k)}catch(e){}}
+};
+function msg(el,t,c){$(el).innerHTML=t?`<div class="msg ${c}">${esc(t)}</div>`:''}
+function show(id){['gate','tokenSetup','app'].forEach(x=>$(x).style.display=x===id?'block':'none')}
+let flashT=null;
+function flash(t,c){const f=$('flash');f.innerHTML=`<div class="msg ${c||'info'}">${esc(t)}</div>`;clearTimeout(flashT);if(c!=='info')flashT=setTimeout(()=>f.innerHTML='',4500)}
+function setDirty(v){dirty=v;$('dirty').textContent=v?'⚠ Unsaved changes':'No unsaved changes';$('saveAll').disabled=!v}
+
+/* ---------- login ---------- */
+async function sha256(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+const hashFor=(u,p)=>sha256(`${CONFIG.SALT}:${u}:${p}`);
+let fails=0,lockUntil=0;
+$('loginBtn').onclick=login;
+$('pw').addEventListener('keydown',e=>{if(e.key==='Enter')login()});
+async function login(){
+  if(Date.now()<lockUntil){msg('loginMsg','Too many attempts. Wait a few seconds.','err');return}
+  const u=$('u').value.trim(),p=$('pw').value;
+  if(!window.crypto||!crypto.subtle){msg('loginMsg','This page must be opened over https.','err');return}
+  const hh=await hashFor(u,p);
+  if(u===CONFIG.USER&&hh===CONFIG.PASS_HASH){
+    fails=0;if($('remember').checked)store.set('adm_session',hh);else store.del('adm_session');
+    try{sessionStorage.setItem('adm_session',hh)}catch(e){}
+    enter();
+  }else{fails++;if(fails>=4){lockUntil=Date.now()+15000;fails=0}msg('loginMsg','Wrong username or password.','err')}
+}
+function signedIn(){let s=null;try{s=sessionStorage.getItem('adm_session')}catch(e){}return (s||store.get('adm_session'))===CONFIG.PASS_HASH}
+function signOut(){store.del('adm_session');try{sessionStorage.removeItem('adm_session')}catch(e){}location.reload()}
+$('logout').onclick=()=>{if(dirty&&!confirm('You have unsaved changes. Sign out anyway?'))return;signOut()};
+$('tokOut').onclick=signOut;
+
+/* ---------- GitHub API ---------- */
+const token=()=>store.get('adm_token')||'';
+class AuthErr extends Error{}
+class NetErr extends Error{}
+const api=async(p,o={})=>{
+  try{return await fetch(`https://api.github.com/repos/${CONFIG.REPO}${p?'/'+p:''}`,{...o,headers:{Authorization:'Bearer '+token(),Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(o.headers||{})}})}
+  catch(e){throw new NetErr('The request to GitHub failed ('+e.name+': '+e.message+'). Open test.html next to this page to see which step fails.')}
+};
+const b64enc=s=>btoa(unescape(encodeURIComponent(s)));
+const b64dec=s=>decodeURIComponent(escape(atob(s.replace(/\n/g,''))));
+function explain(r,t){
+  if(r.status===401)return new AuthErr('The GitHub key is invalid or expired. Please paste a new one.');
+  if(r.status===403||r.status===404)return new Error('Cannot reach the repository "'+CONFIG.REPO+'". Check that the key has "Contents: Read and write" on it.');
+  if(r.status===409||r.status===422)return new Error('The file changed on GitHub meanwhile. Reload this page and try again.');
+  return new Error('GitHub error '+r.status+': '+t);
+}
+function normalize(d){
+  if(!Array.isArray(d.sections))throw new Error('content.json is in the old format. Upload the new content.json (version 2) to the repository first.');
+  d.site=d.site||{};
+  const imgs=a=>(Array.isArray(a)?a:[]).map(x=>typeof x==='string'?{src:x,caption:''}:x);
+  for(const s of d.sections)for(const b of (s.blocks||[])){
+    if(b.type==='gallery')b.images=imgs(b.images);
+    if(b.type==='cards')for(const it of (b.items||[]))it.images=imgs(it.images);
+  }
+  return d;
+}
+async function load(){
+  const meta=await api('');if(!meta.ok)throw explain(meta,await meta.text());
+  branch=(await meta.json()).default_branch||CONFIG.BRANCH;
+  const r=await api('contents/content.json?ref='+encodeURIComponent(branch)+'&t='+Date.now());
+  if(!r.ok)throw explain(r,await r.text());
+  const j=await r.json();sha=j.sha;data=normalize(JSON.parse(b64dec(j.content)));
+}
+function ensureIds(){
+  const used=new Set(),secIds=new Set();
+  for(const s of data.sections){
+    if(s.type==='section'||s.type==='contact'||s.type==='hero'||s.type==='stats'){
+      let base=slug(s.id)||slug(s.title)||s.type,id=base,n=2;
+      while(secIds.has(id))id=base+'-'+n++;s.id=id;secIds.add(id);
+    }
+    for(const b of (s.blocks||[]))if(b.type==='cards')for(const it of (b.items||[]))if(it.id)used.add(it.id);
+  }
+  for(const s of data.sections)for(const b of (s.blocks||[]))if(b.type==='cards')for(const it of (b.items||[]))if(!it.id){
+    const base=slug(it.title)||'item';let id=base,n=2;while(used.has(id))id=base+'-'+n++;it.id=id;used.add(id);
+  }
+}
+async function save(){
+  ensureIds();data.version=2;
+  const r=await api('contents/content.json',{method:'PUT',body:JSON.stringify({message:'Update site content',content:b64enc(JSON.stringify(data,null,2)),sha,branch})});
+  if(!r.ok)throw explain(r,await r.text());
+  sha=(await r.json()).content.sha;
+}
+function resize(file,max=1600){return new Promise((res,rej)=>{
+  const img=new Image(),u=URL.createObjectURL(file);
+  img.onload=()=>{let w=img.width,hh=img.height;const s=Math.min(1,max/Math.max(w,hh));w=Math.round(w*s);hh=Math.round(hh*s);
+    const c=document.createElement('canvas');c.width=w;c.height=hh;c.getContext('2d').drawImage(img,0,0,w,hh);
+    c.toBlob(b=>{const fr=new FileReader();fr.onload=()=>res(fr.result.split(',')[1]);fr.readAsDataURL(b)},'image/jpeg',.85);URL.revokeObjectURL(u)};
+  img.onerror=()=>rej(new Error('Could not read this image'));img.src=u})}
+async function upload(file){
+  const name=Date.now()+'-'+Math.random().toString(36).slice(2,6)+'-'+file.name.replace(/\.[^.]+$/,'').replace(/[^a-z0-9]+/gi,'-').slice(0,24)+'.jpg';
+  const path='images/uploads/'+name,content=await resize(file);
+  const r=await api('contents/'+path,{method:'PUT',body:JSON.stringify({message:'Upload '+name,content,branch})});
+  if(!r.ok)throw explain(r,await r.text());
+  return path;
+}
+function pick(multiple){return new Promise(res=>{const i=$('file');i.multiple=!!multiple;i.value='';i.onchange=()=>res([...i.files]);i.click()})}
+async function uploadMany(files,each){
+  if(offline){flash('Photo upload needs the GitHub connection. Upload the photo on github.com into the images folder, then type its path.','err');return}
+  let n=0;
+  for(const f of files){
+    n++;flash('Uploading photo '+n+' of '+files.length+'...','info');
+    try{each(await upload(f),f)}catch(e){flash(e.message,'err');return}
+  }
+  flash('Uploaded ✔ Press "Save to website" to publish.','ok');
+}
+
+/* =====================================================================
+   FORM ENGINE
+   ===================================================================== */
+const OPEN=new WeakSet();
+const RICH='Tip: blank line = new paragraph · **bold** · *italic* · [text](link) · start lines with "- " for bullets';
+
+function control(obj,f){
+  const w=h('div',{class:'fld'});
+  const L=t=>h('label',{},t);
+  if(f.t==='sep'){return h('h4',{class:'sep'},f.l)}
+  if(f.t==='text'||f.t==='num'){
+    const i=h('input',{type:'text'});i.value=obj[f.k]??'';
+    i.addEventListener('input',()=>{obj[f.k]=i.value;setDirty(true)});
+    if(f.slug)i.addEventListener('change',()=>{i.value=obj[f.k]=slug(i.value);setDirty(true)});
+    w.append(L(f.l),i);
+  }else if(f.t==='area'){
+    const a=h('textarea',{rows:f.rows||4});a.value=obj[f.k]??'';
+    a.addEventListener('input',()=>{obj[f.k]=a.value;setDirty(true)});
+    w.append(L(f.l),a);if(f.rich)w.append(h('div',{class:'hint'},RICH));
+  }else if(f.t==='select'){
+    const s=h('select');for(const o of f.opts)s.append(h('option',{value:o[0]},o[1]));
+    const cur=obj[f.k]!=null&&obj[f.k]!==''?String(obj[f.k]):(f.def!=null?String(f.def):f.opts[0][0]);
+    s.value=f.opts.some(o=>o[0]===cur)?cur:f.opts[0][0];
+    s.addEventListener('change',()=>{obj[f.k]=s.value;setDirty(true)});
+    w.append(L(f.l),s);
+  }else if(f.t==='check'){
+    const c=h('input',{type:'checkbox'});c.checked=obj[f.k]!==false&&(f.def!==false||obj[f.k]===true)&&!(obj[f.k]==null&&f.def===false);
+    if(obj[f.k]==null&&f.def===false)c.checked=false;
+    c.addEventListener('change',()=>{obj[f.k]=c.checked;setDirty(true)});
+    w.append(h('label',{class:'chk'},c,' '+f.l));
+  }else if(f.t==='image'){
+    const i=h('input',{type:'text',placeholder:'images/...'});i.value=obj[f.k]??'';
+    const th=h('img',{class:'thumb'});const upd=()=>{if(i.value){th.src=i.value;th.style.display=''}else th.style.display='none'};
+    th.onerror=()=>th.style.display='none';
+    i.addEventListener('input',()=>{obj[f.k]=i.value;upd();setDirty(true)});upd();
+    const up=h('button',{class:'s',type:'button',onclick:async()=>{const fs=await pick(false);if(fs.length)uploadMany(fs,p=>{i.value=obj[f.k]=p;upd();setDirty(true)})}},'📷 Upload photo');
+    const cl=h('button',{class:'s',type:'button',onclick:()=>{i.value=obj[f.k]='';upd();setDirty(true)}},'Remove');
+    w.append(L(f.l),i,h('div',{class:'row',style:'margin-top:8px'},up,cl),th);
+  }else if(f.t==='gallery'){
+    const arr=obj[f.k]||(obj[f.k]=[]),box=h('div',{class:'gal-ed'});
+    const draw=()=>{
+      box.innerHTML='';
+      arr.forEach((p,i)=>{
+        const im=h('img',{src:p.src});im.onerror=()=>im.style.visibility='hidden';
+        const cap=h('input',{type:'text',placeholder:'Caption (optional)'});cap.value=p.caption||'';
+        cap.addEventListener('input',()=>{p.caption=cap.value;setDirty(true)});
+        box.append(h('div',{class:'g'},im,cap,
+          h('button',{class:'s',type:'button',onclick:()=>{if(i>0){[arr[i-1],arr[i]]=[arr[i],arr[i-1]];setDirty(true);draw()}}},'↑'),
+          h('button',{class:'s',type:'button',onclick:()=>{if(i<arr.length-1){[arr[i+1],arr[i]]=[arr[i],arr[i+1]];setDirty(true);draw()}}},'↓'),
+          h('button',{class:'d',type:'button',onclick:()=>{arr.splice(i,1);setDirty(true);draw()}},'✕')));
+      });
+      box.append(h('div',{class:'row'},
+        h('button',{class:'p',type:'button',onclick:async()=>{const fs=await pick(true);if(fs.length)uploadMany(fs,p=>{arr.push({src:p,caption:''});setDirty(true);draw()})}},'📷 Upload photos'),
+        h('button',{class:'s',type:'button',onclick:()=>{const p=prompt('Photo path or https link:');if(p){arr.push({src:p.trim(),caption:''});setDirty(true);draw()}}},'+ Add by path')));
+    };
+    draw();w.append(L(f.l),box);
+  }else if(f.t==='list'){
+    w.append(L(f.l),listBox(obj,f));
+  }
+  if(f.hint)w.append(h('div',{class:'hint'},f.hint));
+  return w;
+}
+function editFields(obj,fields){const box=h('div',{class:'fields'});for(const f of fields)box.append(control(obj,f));return box}
+
+function listBox(obj,f){
+  const arr=obj[f.k]||(obj[f.k]=[]),box=h('div',{class:'list'}),holder=h('div');
+  const fieldsFor=it=>f.fieldsFor?f.fieldsFor(it):f.fields;
+  const titleOf=it=>(f.title?f.title(it):'')||'(untitled)';
+  const draw=()=>{
+    holder.innerHTML='';
+    arr.forEach((it,i)=>{
+      const d=h('details',{class:'li'});if(OPEN.has(it))d.open=true;
+      d.addEventListener('toggle',()=>{d.open?OPEN.add(it):OPEN.delete(it)});
+      const t=h('span',{class:'t'},titleOf(it));
+      const stop=fn=>e=>{e.preventDefault();e.stopPropagation();fn()};
+      const acts=h('span',{class:'act'},
+        h('button',{class:'s',type:'button',onclick:stop(()=>{if(i>0){[arr[i-1],arr[i]]=[arr[i],arr[i-1]];setDirty(true);draw()}})},'↑'),
+        h('button',{class:'s',type:'button',onclick:stop(()=>{if(i<arr.length-1){[arr[i+1],arr[i]]=[arr[i],arr[i+1]];setDirty(true);draw()}})},'↓'),
+        h('button',{class:'s',type:'button',title:'Duplicate',onclick:stop(()=>{const c=clone(it);delete c.id;arr.splice(i+1,0,c);setDirty(true);draw()})},'⧉'),
+        h('button',{class:'d',type:'button',onclick:stop(()=>{if(confirm('Delete this item?')){arr.splice(i,1);setDirty(true);draw()}})},'✕'));
+      d.append(h('summary',{},t,acts));
+      const body=h('div',{class:'body'},editFields(it,fieldsFor(it)));
+      body.addEventListener('input',()=>{t.textContent=titleOf(it)});
+      d.append(body);holder.append(d);
+    });
+    if(!arr.length)holder.append(h('div',{class:'hint'},'Nothing here yet.'));
+  };
+  draw();box.append(holder);
+  const add=h('div',{class:'addrow'});
+  if(f.types){
+    const sel=h('select');for(const [k,v] of Object.entries(f.types))sel.append(h('option',{value:k},v.label));
+    add.append(sel,h('button',{class:'p',type:'button',onclick:()=>{const t=f.types[sel.value],it=clone(Object.assign({type:sel.value},t.blank||{}));arr.push(it);OPEN.add(it);setDirty(true);draw()}},'+ Add'));
+  }else{
+    add.append(h('button',{class:'p',type:'button',onclick:()=>{const it=clone(f.blank||{});arr.push(it);OPEN.add(it);setDirty(true);draw()}},'+ Add'));
+  }
+  box.append(add);return box;
+}
+
+/* =====================================================================
+   SCHEMAS
+   ===================================================================== */
+const BTN_STYLE=[['primary','White'],['ghost','Outline (on dark)'],['teal','Teal'],['outline','Outline (on light)']];
+const BUTTONS={k:'buttons',t:'list',l:'Buttons',blank:{label:'Button',href:'#',style:'teal'},title:i=>i.label,
+  fields:[{k:'label',t:'text',l:'Label'},{k:'href',t:'text',l:'Link (https://..., #section-id, or a file path)'},{k:'style',t:'select',l:'Style',opts:BTN_STYLE}]};
+const COLS=n=>[['1','1'],['2','2'],['3','3'],['4','4']].slice(0,n);
+const LAYOUTS=[['grid','Grid (equal squares)'],['masonry','Masonry (natural sizes)'],['slider','Slider (swipe)'],['strip','Small strip']];
+const FACTS={k:'facts',t:'list',l:'Numbers (small stats under the text)',blank:{v:'',l:''},title:i=>`${i.v||''} ${i.l||''}`.trim(),
+  fields:[{k:'v',t:'text',l:'Number'},{k:'l',t:'text',l:'Label'}]};
+
+const CARD_FIELDS=[
+  {k:'title',t:'text',l:'Title'},
+  {k:'icon',t:'text',l:'Icon (an emoji, optional)'},
+  {k:'date',t:'text',l:'Date / small label (optional)'},
+  {k:'tag',t:'text',l:'Tag (optional)'},
+  {k:'text',t:'area',l:'Short text shown on the card',rich:1,rows:4},
+  {k:'chips',t:'text',l:'Chips (comma separated, optional)'},
+  {k:'chipStyle',t:'select',l:'Chip / tag color',opts:[['','Teal'],['v','Violet']]},
+  FACTS,
+  {k:'cats',t:'text',l:'Filter categories (keys, comma separated)'},
+  {k:'image',t:'image',l:'Cover image (optional)'},
+  {k:'link',t:'text',l:'External link (optional)'},
+  {k:'linkLabel',t:'text',l:'External link label'},
+  {t:'sep',l:'📄 Details page (opens when the card is clicked)'},
+  {k:'body',t:'area',l:'Full details',rich:1,rows:10},
+  {k:'images',t:'gallery',l:'Photos'},
+  {k:'layout',t:'select',l:'How to show the photos',opts:LAYOUTS,def:'grid'},
+  {k:'cols',t:'select',l:'Photos per row (grid / masonry)',opts:COLS(4).slice(1),def:'3'}
+];
+const prev=b=>b.title||b.text||(b.items?b.items.length+' items':'')||(b.images?b.images.length+' photos':'')||'';
+const BLOCKS={
+  text:{label:'Paragraph(s)',blank:{text:''},fields:[{k:'text',t:'area',l:'Text',rich:1,rows:8}]},
+  heading:{label:'Sub-heading',blank:{text:'New heading'},fields:[{k:'text',t:'text',l:'Heading'}]},
+  cards:{label:'Cards / projects / list',blank:{columns:'3',variant:'card',pages:false,filters:[],items:[]},fields:[
+    {k:'variant',t:'select',l:'Style',opts:[['card','Cards'],['row','Compact rows (like the courses list)']],def:'card'},
+    {k:'columns',t:'select',l:'Cards per row',opts:COLS(4),def:'3'},
+    {k:'pages',t:'check',l:'Open a details page for every card',def:false},
+    {k:'filters',t:'list',l:'Filter buttons (optional)',blank:{key:'',label:''},title:i=>i.label||i.key,fields:[{k:'key',t:'text',l:'Key (e.g. medical)'},{k:'label',t:'text',l:'Button text'}]},
+    {k:'items',t:'list',l:'Cards',blank:{title:'New card',text:'',images:[],facts:[]},title:i=>i.title||i.text,fields:CARD_FIELDS}
+  ]},
+  timeline:{label:'Timeline',blank:{items:[]},fields:[
+    {k:'items',t:'list',l:'Steps',blank:{date:'',title:'New step',text:''},title:i=>(i.date?i.date+' · ':'')+(i.title||''),fields:[{k:'date',t:'text',l:'Date'},{k:'title',t:'text',l:'Title'},{k:'text',t:'area',l:'Text',rich:1}]}]},
+  stats:{label:'Numbers row',blank:{columns:'4',items:[]},fields:[
+    {k:'columns',t:'select',l:'Per row',opts:COLS(4),def:'4'},
+    {k:'items',t:'list',l:'Numbers',blank:{kicker:'',value:'',label:''},title:i=>`${i.value||''} ${i.label||''}`.trim(),fields:[{k:'kicker',t:'text',l:'Small heading (optional)'},{k:'value',t:'text',l:'Number'},{k:'label',t:'text',l:'Label'}]}]},
+  chips:{label:'Chips / tags',blank:{items:[]},fields:[
+    {k:'items',t:'list',l:'Chips',blank:{text:'',style:''},title:i=>i.text,fields:[{k:'text',t:'text',l:'Text'},{k:'style',t:'select',l:'Color',opts:[['','Teal'],['v','Violet']]}]}]},
+  bars:{label:'Progress bars (e.g. languages)',blank:{items:[]},fields:[
+    {k:'items',t:'list',l:'Bars',blank:{label:'',note:'',value:'80'},title:i=>`${i.label||''} ${i.note||''}`.trim(),fields:[{k:'label',t:'text',l:'Name'},{k:'note',t:'text',l:'Note (e.g. C1)'},{k:'value',t:'text',l:'Level 0-100'}]}]},
+  gallery:{label:'Photo gallery',blank:{layout:'grid',columns:'3',emptyText:'',images:[]},fields:[
+    {k:'layout',t:'select',l:'Layout',opts:LAYOUTS,def:'grid'},
+    {k:'columns',t:'select',l:'Photos per row (grid / masonry)',opts:COLS(4).slice(1),def:'3'},
+    {k:'emptyText',t:'text',l:'Text shown when there are no photos (leave empty to hide the block)'},
+    {k:'images',t:'gallery',l:'Photos'}]},
+  callout:{label:'Highlighted box',blank:{style:'plain',title:'',text:'',image:'',buttons:[]},fields:[
+    {k:'style',t:'select',l:'Look',opts:[['plain','Light'],['violet','Violet gradient'],['gradient','Teal gradient']],def:'plain'},
+    {k:'title',t:'text',l:'Title'},{k:'text',t:'area',l:'Text',rich:1,rows:6},{k:'image',t:'image',l:'Image / logo (optional)'},BUTTONS]},
+  buttons:{label:'Buttons row',blank:{items:[]},fields:[Object.assign({},BUTTONS,{k:'items'})]},
+  video:{label:'Video',blank:{url:'',title:''},fields:[{k:'url',t:'text',l:'Video link (YouTube is embedded; other links become a button)'},{k:'title',t:'text',l:'Title'}]},
+  code:{label:'Code box',blank:{text:''},fields:[{k:'text',t:'area',l:'Code',rows:8}]}
+};
+const BLOCKS_FIELD={k:'blocks',t:'list',l:'Content blocks (in order)',types:BLOCKS,title:b=>((BLOCKS[b.type]||{}).label||b.type)+(prev(b)?': '+String(prev(b)).slice(0,40):''),fieldsFor:b=>(BLOCKS[b.type]||{fields:[]}).fields};
+
+const SEC={
+  hero:[
+    {k:'badge',t:'text',l:'Small badge'},{k:'kicker',t:'text',l:'Name line'},
+    {k:'title',t:'text',l:'Main title',hint:'Put *stars* around the word you want highlighted, e.g. Medicine begins with *empathy*.'},
+    {k:'lead',t:'area',l:'Intro text',rows:5},{k:'quote',t:'area',l:'Quote',rows:3},BUTTONS,
+    {k:'image',t:'image',l:'Your photo'},{k:'location',t:'text',l:'Location label'}],
+  stats:[{k:'items',t:'list',l:'Numbers',blank:{kicker:'',value:'',label:''},title:i=>`${i.kicker?i.kicker+': ':''}${i.value||''}`,fields:[{k:'kicker',t:'text',l:'Small heading'},{k:'value',t:'text',l:'Number'},{k:'label',t:'text',l:'Label'}]}],
+  section:[
+    {k:'nav',t:'text',l:'Menu label (leave empty to keep it out of the menu)'},
+    {k:'id',t:'text',l:'Link name (letters, numbers, dashes)',slug:1},
+    {k:'bg',t:'select',l:'Background',opts:[['plain','Plain'],['alt','Light panel'],['violet','Violet tint']],def:'plain'},
+    {k:'eyebrow',t:'text',l:'Small heading above the title'},{k:'title',t:'text',l:'Title'},{k:'subtitle',t:'area',l:'Subtitle',rows:2}],
+  contact:[
+    {k:'title',t:'text',l:'Title'},{k:'text',t:'area',l:'Text',rows:3},
+    {k:'links',t:'list',l:'Contact links',blank:{icon:'🔗',label:'',value:'',href:''},title:i=>i.label||i.value,fields:[{k:'icon',t:'text',l:'Icon (emoji)'},{k:'label',t:'text',l:'Label'},{k:'value',t:'text',l:'Shown text'},{k:'href',t:'text',l:'Link (https://, mailto:, tel:)'}]},
+    {k:'cvTitle',t:'text',l:'CV box title'},{k:'cvText',t:'area',l:'CV box text',rows:2},{k:'cvLabel',t:'text',l:'CV button text'},{k:'cvHref',t:'text',l:'CV file path or link'}]
+};
+const SITE_FIELDS=[
+  {k:'brand',t:'text',l:'Name shown in the top bar'},{k:'tagline',t:'text',l:'Line under the name'},{k:'logo',t:'text',l:'Logo letters'},
+  {k:'navCta',t:'text',l:'Top-bar button text'},{k:'title',t:'text',l:'Browser tab / Google title'},{k:'description',t:'area',l:'Google description',rows:3},{k:'footer',t:'text',l:'Footer text'}];
+const TYPE_NAME={hero:'Top banner',stats:'Numbers bar',section:'Section',contact:'Contact footer'};
+
+/* =====================================================================
+   VIEWS
+   ===================================================================== */
+function render(){
+  const tabs=$('tabs');tabs.innerHTML='';
+  [['sections','Sections'],['site','Site settings']].forEach(([k,l])=>tabs.append(h('button',{class:'tab'+(view.name===k||(view.name==='edit'&&k==='sections')?' on':''),onclick:()=>{view={name:k};render()}},l)));
+  const v=$('view');v.innerHTML='';
+  if(view.name==='sections')v.append(sectionsView());
+  else if(view.name==='edit')v.append(editView(view.sec));
+  else v.append(h('div',{class:'card'},editFields(data.site,SITE_FIELDS)));
+}
+function secTitle(s){return s.title||s.kicker||(s.items&&s.items[0]&&s.items[0].value)||TYPE_NAME[s.type]||s.type}
+function sectionsView(){
+  const box=h('div'),arr=data.sections;
+  box.append(h('div',{class:'hint',style:'margin-bottom:10px'},'The sections appear on the site in this order. Tap Edit to change any text, photo or layout inside a section.'));
+  arr.forEach((s,i)=>{
+    const fixed=s.type==='hero'||s.type==='contact';
+    box.append(h('div',{class:'srow'+(s.visible===false?' off':'')},
+      h('div',{style:'min-width:0'},h('b',{},secTitle(s)),h('small',{},(TYPE_NAME[s.type]||s.type)+(s.nav?' · menu: '+s.nav:''))),
+      h('div',{class:'act'},
+        h('button',{class:'s',onclick:()=>{if(i>0){[arr[i-1],arr[i]]=[arr[i],arr[i-1]];setDirty(true);render()}}},'↑'),
+        h('button',{class:'s',onclick:()=>{if(i<arr.length-1){[arr[i+1],arr[i]]=[arr[i],arr[i+1]];setDirty(true);render()}}},'↓'),
+        h('button',{class:'s',onclick:()=>{s.visible=s.visible===false;setDirty(true);render()}},s.visible===false?'Show':'Hide'),
+        h('button',{class:'p',onclick:()=>{view={name:'edit',sec:s};render();window.scrollTo(0,0)}},'Edit'),
+        fixed?null:h('button',{class:'d',onclick:()=>{if(confirm('Delete the whole section "'+secTitle(s)+'"?')){arr.splice(i,1);setDirty(true);render()}}},'✕'))));
+  });
+  box.append(h('div',{class:'row'},h('button',{class:'p',onclick:()=>{
+    const n=arr.filter(x=>x.type==='section').length+1;
+    const s={type:'section',id:'section-'+n,nav:'',visible:true,bg:'plain',eyebrow:'',title:'New section',subtitle:'',blocks:[]};
+    const ci=arr.findIndex(x=>x.type==='contact');arr.splice(ci>=0?ci:arr.length,0,s);setDirty(true);view={name:'edit',sec:s};render();
+  }},'+ Add a section')));
+  return box;
+}
+function editView(sec){
+  const box=h('div');
+  box.append(h('div',{class:'row',style:'margin:0 0 12px'},h('button',{class:'s',onclick:()=>{view={name:'sections'};render()}},'← All sections'),h('b',{},(TYPE_NAME[sec.type]||sec.type)+': '+secTitle(sec))));
+  const c=h('div',{class:'card'});
+  c.append(control(sec,{k:'visible',t:'check',l:'Show this section on the site',def:true}));
+  c.append(editFields(sec,SEC[sec.type]||[]));
+  box.append(c);
+  if(sec.type==='section'){const b=h('div',{class:'card'});b.append(control(sec,BLOCKS_FIELD));box.append(b)}
+  return box;
+}
+
+/* ---------- flow ---------- */
+async function enter(){
+  if(!token()){show('tokenSetup');return}
+  show('app');msg('appMsg','Loading...','info');
+  try{await load();msg('appMsg','');render()}
+  catch(e){
+    if(e instanceof AuthErr){store.del('adm_token');show('tokenSetup');msg('tokMsg',e.message,'err')}
+    else if(e instanceof NetErr){
+      try{
+        const r=await fetch('content.json?t='+Date.now());if(!r.ok)throw 0;
+        data=normalize(await r.json());offline=true;render();
+        msg('appMsg','OFFLINE MODE: '+e.message+' You can still edit. "Save" will download content.json; upload it to the repository on github.com (Add file → Upload files). Photos must be uploaded to the images folder manually.','err');
+      }catch(_){msg('appMsg',e.message,'err')}
+    }else msg('appMsg',e.message,'err');
+  }
+}
+$('tokBtn').onclick=()=>{
+  const t=$('tok').value.trim();
+  if(t.length<20){msg('tokMsg','Paste the full token (it starts with github_pat_ or ghp_).','err');return}
+  store.set('adm_token',t);$('tok').value='';msg('tokMsg','');enter();
+};
+$('saveAll').onclick=async()=>{
+  if(offline){
+    ensureIds();data.version=2;
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download='content.json';a.click();
+    setDirty(false);msg('appMsg','content.json downloaded ✔ Upload it to the repository on github.com to replace the old one.','ok');return;
+  }
+  $('saveAll').disabled=true;msg('appMsg','Saving...','info');
+  try{await save();setDirty(false);msg('appMsg','Saved ✔ The website updates in about 1 minute. Then refresh the site.','ok')}
+  catch(e){
+    if(e instanceof AuthErr){store.del('adm_token');show('tokenSetup');msg('tokMsg',e.message,'err')}
+    else{msg('appMsg',e.message,'err');$('saveAll').disabled=false}
+  }
+};
+$('backup').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download='content-backup.json';a.click()};
+$('viewSite').onclick=()=>open('index.html','_blank');
+addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+$('chPw').onclick=async()=>{
+  const u=prompt('New username:',CONFIG.USER);if(!u)return;
+  const p=prompt('New password (use 10+ characters):');if(!p||p.length<8){alert('Password too short.');return}
+  const hh=await hashFor(u.trim(),p);
+  $('appMsg').innerHTML='<div class="msg info">To apply: open admin.html on GitHub, and in the CONFIG block replace these two lines, then commit:<pre>USER:   \''+esc(u.trim())+'\',\nPASS_HASH: \''+hh+'\'</pre></div>';
+};
+if(signedIn())enter();else show('gate');
+</script>
+</body>
+</html>
